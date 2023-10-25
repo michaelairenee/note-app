@@ -1,9 +1,9 @@
-const key = "Michaela"
+import { env } from "@config"
 
 export const encrypt = (text: any) => {
   return [...text]
     .map((x, i) =>
-      (x.codePointAt() ^ key.charCodeAt(i % key.length) % 255)
+      (x.codePointAt() ^ env.key.charCodeAt(i % env.key.length) % 255)
         .toString(16)
         .padStart(2, "0")
     )
@@ -16,7 +16,7 @@ export const decrypt = (text: any) => {
       .match(/.{1,2}/g)
       .map(
         (e: any, i: any) =>
-          parseInt(e, 16) ^ key.charCodeAt(i % key.length) % 255
+          parseInt(e, 16) ^ env.key.charCodeAt(i % env.key.length) % 255
       )
   )
 }

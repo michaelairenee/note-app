@@ -53,16 +53,14 @@ const NoteList = ({ list }: NoteListProps) => {
       data={list}
       renderItem={({ item }: any) => (
         <Pressable onPress={() => goDetail(item)}>
-          <Box borderBottomWidth="$1" borderColor="$trueGray800" py="$2">
+          <Box borderBottomWidth="$1" borderColor="$coolGray600" py="$2">
             <HStack space="md" justifyContent="space-between">
               <VStack>
-                <Text color="$coolGray800" fontWeight="$bold">
-                  {getTitle(item.notes)}
-                </Text>
-                <Text color="$coolGray600">{getDesc(item.notes)}</Text>
+                <Text fontWeight="$bold">{getTitle(item.notes)}</Text>
+                <Text>{getDesc(item.notes)}</Text>
               </VStack>
-              <Text fontSize="$xs" color="$coolGray800" alignSelf="flex-start">
-                {new Date(item.date).toLocaleDateString()}
+              <Text fontSize="$xs" alignSelf="flex-start">
+                {new Date(item.date).toLocaleDateString("id-ID")}
               </Text>
             </HStack>
           </Box>

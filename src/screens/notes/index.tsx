@@ -1,11 +1,11 @@
 import {
-  Text,
   VStack,
   Input,
   InputField,
   InputIcon,
   InputSlot,
-  SearchIcon
+  SearchIcon,
+  Heading
 } from "@gluestack-ui/themed"
 import withTemplate from "@components/withTemplate"
 import NoteList from "@components/notes/list"
@@ -46,8 +46,8 @@ const List = () => {
   }, [dataList])
 
   return (
-    <VStack>
-      <Text>List</Text>
+    <VStack space="md">
+      <Heading>Notes</Heading>
       <Input>
         <InputSlot pl="$3">
           <InputIcon as={SearchIcon} />

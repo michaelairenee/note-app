@@ -7,14 +7,16 @@ import { Menu } from "./notes/menu"
 interface TemplateProps {
   sv?: boolean
   menu?: boolean
+  bg?: string
 }
 
 const withTemplate =
-  (Component: FC<any>, { sv, menu }: TemplateProps) =>
+  (Component: FC<any>, { sv, menu, bg }: TemplateProps) =>
   (props: any) => {
     if (Platform.OS === "ios") {
       return (
-        <SafeAreaView style={{ flex: 1 }}>
+        <SafeAreaView
+          style={{ flex: 1, backgroundColor: bg ? bg : "transparent" }}>
           <WithScrollView sv={sv}>
             <VStack p="$4" flex={1}>
               <Component {...props} />
@@ -25,9 +27,9 @@ const withTemplate =
       )
     } else {
       return (
-        <VStack flex={1}>
-          <WithScrollView>
-            <VStack p="$4">
+        <VStack flex={1} bg={bg ? bg : "transparent"}>
+          <WithScrollView sv={sv}>
+            <VStack p="$4" flex={1}>
               <Component {...props} />
             </VStack>
           </WithScrollView>

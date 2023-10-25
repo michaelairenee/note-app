@@ -1,4 +1,4 @@
-import { Button, Text, Textarea, TextareaInput } from "@gluestack-ui/themed"
+import { Pressable, Text, Textarea, TextareaInput } from "@gluestack-ui/themed"
 import { NativeStackScreenProps } from "@react-navigation/native-stack"
 import { useCallback, useLayoutEffect, useState } from "react"
 import withTemplate from "src/components/withTemplate"
@@ -16,21 +16,21 @@ const New = ({ navigation }: Props) => {
   const save = useCallback(() => {
     if (!notes) {
       navigation.navigate("List")
+    } else {
+      const payload = {
+        notes: encrypt(notes),
+        date: new Date().toString()
+      }
+      dispatch(saveNotes(payload))
+      navigation.navigate("List")
     }
-
-    const payload = {
-      notes: encrypt(notes),
-      date: new Date().toString()
-    }
-    dispatch(saveNotes(payload))
-    navigation.navigate("List")
   }, [notes, dispatch, navigation])
 
   const renderButton = useCallback(() => {
     return (
-      <Button style={{ backgroundColor: "transparent" }} onPress={save}>
-        <Text>Save</Text>
-      </Button>
+      <Pressable onPress={save}>
+        <Text color="#FF7133">Save</Text>
+      </Pressable>
     )
   }, [save])
 

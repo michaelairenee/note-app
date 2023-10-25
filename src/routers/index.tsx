@@ -11,6 +11,7 @@ import { setNotes } from "src/redux/reducers/notesSlice"
 const List = lazy(() => import("src/screens/notes/index"))
 const New = lazy(() => import("src/screens/notes/create"))
 const Edit = lazy(() => import("src/screens/notes/edit"))
+const Password = lazy(() => import("src/screens/password/index"))
 
 const AppStack = createNativeStackNavigator<AppStackParams>()
 
@@ -43,9 +44,14 @@ const Routers = () => {
             headerBackTitleVisible: false
           }}>
           <AppStack.Screen name="Home" component={Home} />
+          <AppStack.Screen name="Password" component={Password} />
+          <AppStack.Screen name="List" component={List} />
           <AppStack.Group
-            screenOptions={{ headerTitle: "", headerShown: true }}>
-            <AppStack.Screen name="List" component={List} />
+            screenOptions={{
+              headerTitle: "",
+              headerShown: true,
+              headerTintColor: "#FF7133"
+            }}>
             <AppStack.Screen name="New" component={New} />
             <AppStack.Screen name="Edit" component={Edit} />
           </AppStack.Group>

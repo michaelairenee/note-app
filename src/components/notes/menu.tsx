@@ -9,7 +9,7 @@ export const Menu = () => {
     <Fab
       mx="$4"
       my="$8"
-      bg="$emerald600"
+      bg="#FF7133"
       size="lg"
       placement="bottom right"
       onPress={() => navigate("New")}>

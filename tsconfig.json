@@ -10,7 +10,9 @@
       "@components/*": ["src/components/*"],
       "@screens/*": ["src/screens/*"],
       "@routers/*": ["src/routers/*"],
-      "@utils/*": ["src/utils/*"]
+      "@utils/*": ["src/utils/*"],
+      "@config": ["src/config"],
+      "@pngs/*": ["src/assets/pngs/*"]
     }
   }
 }
