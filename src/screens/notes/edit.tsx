@@ -28,7 +28,7 @@ const Edit = ({ navigation }: Props) => {
       dispatch(editNotes(payload))
       navigation.navigate("List")
     }
-  }, [data, notes, dispatch, navigation])
+  }, [data, notes])
 
   const renderButton = useCallback(() => {
     return (

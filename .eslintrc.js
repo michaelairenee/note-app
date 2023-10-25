@@ -10,6 +10,7 @@ module.exports = {
     // suppress errors for missing 'import React' in files
     "react/react-in-jsx-scope": "off",
     "react-native/no-inline-styles": 0,
-    "react/no-unstable-nested-components": "off"
+    "react/no-unstable-nested-components": "off",
+    "react-hooks/exhaustive-deps": "off"
   }
 }

@@ -24,7 +24,7 @@ const New = ({ navigation }: Props) => {
       dispatch(saveNotes(payload))
       navigation.navigate("List")
     }
-  }, [notes, dispatch, navigation])
+  }, [notes])
 
   const renderButton = useCallback(() => {
     return (
